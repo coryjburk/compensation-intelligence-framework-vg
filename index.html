@@ -210,6 +210,27 @@
   .save-btn { margin-top: 7px; width: 100%; padding: 7px; background: var(--u-charcoal); color: #fff; border: none; border-radius: var(--radius); font-size: 12px; font-family: var(--font-body); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; }
   .save-btn:hover { background: var(--u-red-dark); }
   .save-confirm { font-size: 11px; color: var(--u-green); margin-top: 5px; text-align: center; display: none; }
+  .copy-btn {
+    margin-top: 7px;
+    width: 100%;
+    padding: 7px;
+    background: var(--u-surface);
+    color: var(--u-charcoal);
+    border: 1px solid var(--u-border);
+    border-radius: var(--radius);
+    font-size: 12px;
+    font-family: var(--font-body);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all .12s;
+  }
+  .copy-btn:hover {
+    background: var(--u-border-light);
+    border-color: var(--u-charcoal);
+  }
   .qr-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
   .qr-icon { font-size: 14px; color: var(--u-red); margin-top: 1px; flex-shrink: 0; }
   .qr-text { font-size: 12px; color: var(--u-slate); line-height: 1.5; }
