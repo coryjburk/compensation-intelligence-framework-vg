@@ -898,6 +898,65 @@ function loadNotes() {
   } catch(e) {}
 }
 
+function copySessionSummary() {
+  // 1. Re-calculate core TCV logic to ensure we have the live numbers
+  var base = +document.getElementById('t-base').value || 0;
+  var bonus = +document.getElementById('t-bonus').value || 0;
+  var rsu = +document.getElementById('t-rsu').value || 0;
+  var signAnn = (+document.getElementById('t-sign').value || 0) / 3;
+  var ret = (+(document.getElementById('t-ret').value || 0)) / 100 * base;
+  var ben = +document.getElementById('t-ben').value || 0;
+  var brand = +document.getElementById('t-brand').value || 1;
+  var tcvRaw = base + bonus + rsu + signAnn + ret + ben;
+  var tcv = Math.round(tcvRaw * brand);
+
+  // 2. Re-calculate Scorecard totals
+  var aName = document.getElementById('sc-a-name').value || 'Offer A';
+  var bName = document.getElementById('sc-b-name').value || 'Offer B';
+  var aT = 0, bT = 0;
+  scoreDims.forEach(function(d) { 
+    aT += scores.a[d.key] * d.weight; 
+    bT += scores.b[d.key] * d.weight; 
+  });
+  var aS = Math.round(aT * 20), bS = Math.round(bT * 20);
+
+  // 3. Grab the typed notes
+  var student = document.getElementById('note-student').value || 'No context provided.';
+  var offers = document.getElementById('note-offers').value || 'No offers detailed.';
+  var nego = document.getElementById('note-nego').value || 'No strategy detailed.';
+  var next = document.getElementById('note-next').value || 'No next steps detailed.';
+
+  // 4. Build the Markdown-formatted summary string
+  var summary = "### Eccles MBA Coaching Session Summary\n\n";
+  summary += "**Student Context:**\n" + student + "\n\n";
+  summary += "**Offers Under Review:**\n" + offers + "\n\n";
+  summary += "---\n\n";
+  
+  summary += "#### Primary Offer Math (TCV)\n";
+  summary += "- **Base Salary:** $" + base.toLocaleString() + "\n";
+  summary += "- **Annual Bonus:** $" + bonus.toLocaleString() + "\n";
+  summary += "- **Annual Equity (RSU):** $" + rsu.toLocaleString() + "\n";
+  summary += "- **True Comp Value (TCV):** $" + tcv.toLocaleString() + "\n\n";
+  summary += "---\n\n";
+  
+  summary += "#### Strategic Scorecard Verdict\n";
+  summary += "- **" + aName + ":** " + aS + "/100\n";
+  summary += "- **" + bName + ":** " + bS + "/100\n\n";
+  summary += "---\n\n";
+  
+  summary += "#### Negotiation Strategy\n" + nego + "\n\n";
+  summary += "#### Next Steps\n" + next + "\n";
+
+  // 5. Write to clipboard and show visual confirmation
+  navigator.clipboard.writeText(summary).then(function() {
+    var confirm = document.getElementById('copy-confirm');
+    confirm.style.display = 'block';
+    setTimeout(function() { confirm.style.display = 'none'; }, 3000);
+  }).catch(function(err) {
+    alert("Unable to copy to clipboard. Your browser may require you to grant permissions.");
+  });
+}
+ 
 calcTCV();
 calcCOL();
 renderHeatmap();
