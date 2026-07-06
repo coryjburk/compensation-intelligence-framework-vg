@@ -58,95 +58,221 @@
     top: 0;
     z-index: 100;
   }
-  .site-header-logo { display: flex; align-items: center; gap: 12px; }
-  .u-logo-mark {
-    width: 34px; height: 34px; background: var(--u-red); border-radius: 4px; display: flex;
-    align-items: center; justify-content: center; font-family: var(--font-display);
-    font-size: 20px; color: #fff; font-weight: 400; letter-spacing: -0.5px; flex-shrink: 0;
+  .site-header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
-  .u-logo-text { color: #fff; }
+  .u-logo-mark {
+    width: 34px;
+    height: 34px;
+    background: var(--u-red);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+  }
+  .u-logo-text { color: #fff; min-width: 0; }
   .u-logo-text .school { font-size: 13px; font-weight: 500; letter-spacing: 0.02em; }
   .u-logo-text .program { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 300; }
-  .site-header-right { display: flex; align-items: center; gap: 10px; }
-  .version-badge { font-size: 11px; color: rgba(255,255,255,0.45); font-weight: 300; }
+  @media (max-width: 620px) {
+    .site-header { padding: 0 1rem; }
+    .u-logo-text .school { font-size: 11.5px; letter-spacing: 0; }
+    .version-badge { display: none; }
+  }
+  .site-header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .version-badge {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+  }
   .print-btn {
-    font-size: 12px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); padding: 5px 12px;
-    cursor: pointer; font-family: var(--font-body); display: flex; align-items: center; gap: 5px; transition: background 0.15s;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius);
+    padding: 5px 12px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.15s;
   }
   .print-btn:hover { background: rgba(255,255,255,0.14); }
 
   /* ── PAGE HERO ── */
-  .hero { background: var(--u-white); border-bottom: 1px solid var(--u-border); padding: 2rem 2rem 1.5rem; }
-  .hero-inner { max-width: 1060px; margin: 0 auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-  .hero-title { font-family: var(--font-display); font-size: 28px; font-weight: 400; line-height: 1.25; color: var(--u-charcoal); margin-bottom: 6px; }
+  .hero {
+    background: var(--u-white);
+    border-bottom: 1px solid var(--u-border);
+    padding: 2rem 2rem 1.5rem;
+  }
+  .hero-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--u-charcoal);
+    margin-bottom: 6px;
+  }
   .hero-title em { color: var(--u-red); font-style: italic; }
-  .hero-sub { font-size: 13px; color: var(--u-muted); font-weight: 300; line-height: 1.6; max-width: 520px; }
-  .hero-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
-  .hero-pill { font-size: 11px; background: var(--u-surface); border: 1px solid var(--u-border); border-radius: 20px; padding: 3px 10px; color: var(--u-muted); font-weight: 400; }
-  .hero-meta { text-align: right; flex-shrink: 0; }
+  .hero-sub {
+    font-size: 13px;
+    color: var(--u-muted);
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 520px;
+  }
+  .hero-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .hero-pill {
+    font-size: 11px;
+    background: var(--u-surface);
+    border: 1px solid var(--u-border);
+    border-radius: 20px;
+    padding: 3px 10px;
+    color: var(--u-muted);
+    font-weight: 400;
+  }
+  .hero-meta {
+    text-align: right;
+    flex-shrink: 0;
+  }
   .hero-meta .label { font-size: 11px; color: var(--u-muted); margin-bottom: 2px; }
   .hero-meta .value { font-size: 13px; font-weight: 500; color: var(--u-charcoal); }
 
   /* ── MAIN LAYOUT ── */
-  .main-wrap { max-width: 1060px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 1fr 280px; gap: 1.5rem; align-items: start; }
-  @media (max-width: 860px) { .main-wrap { grid-template-columns: 1fr; } .sidebar { order: -1; } }
+  .main-wrap {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .main-wrap { grid-template-columns: 1fr; }
+    .sidebar { order: -1; }
+  }
 
-  /* ── TOOL PANEL & TABS ── */
-  .tool-panel { background: var(--u-white); border: 1px solid var(--u-border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
-  .tab-nav { display: flex; overflow-x: auto; border-bottom: 1px solid var(--u-border); background: var(--u-surface-alt); padding: 8px 12px 0; gap: 2px; scrollbar-width: none; }
+  /* ── TOOL PANEL ── */
+  .tool-panel {
+    background: var(--u-white);
+    border: 1px solid var(--u-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  /* ── TAB NAV ── */
+  .tab-nav {
+    display: flex;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--u-border);
+    background: var(--u-surface-alt);
+    padding: 8px 12px 0;
+    gap: 2px;
+    scrollbar-width: none;
+  }
   .tab-nav::-webkit-scrollbar { display: none; }
   .tab-btn {
-    display: flex; align-items: center; gap: 5px; padding: 7px 14px; font-size: 12.5px;
-    font-family: var(--font-body); font-weight: 400; color: var(--u-muted); background: none;
-    border: none; border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap;
-    border-radius: var(--radius) var(--radius) 0 0; transition: color 0.12s, background 0.12s; margin-bottom: -1px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 14px;
+    font-size: 12.5px;
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--u-muted);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: var(--radius) var(--radius) 0 0;
+    transition: color 0.12s, background 0.12s;
+    margin-bottom: -1px;
   }
   .tab-btn:hover { color: var(--u-charcoal); background: var(--u-border-light); }
   .tab-btn.active { color: var(--u-red-dark); border-bottom-color: var(--u-red); font-weight: 500; background: var(--u-white); }
+  .tab-btn i { font-size: 14px; }
+
+  /* ── TAB CONTENT ── */
   .sec { display: none; padding: 1.5rem; }
   .sec.active { display: block; }
   .sec-title { font-family: var(--font-display); font-size: 20px; font-weight: 400; margin-bottom: 4px; }
-  .sec-sub { font-size: 12px; color: var(--u-muted); margin-bottom: 1rem; line-height: 1.6; }
+  .sec-sub { font-size: 12px; color: var(--u-muted); margin-bottom: 1.25rem; line-height: 1.6; }
 
-  /* ── DERIVATION BOX ── */
-  .derivation-box {
-    background: var(--u-surface-alt);
-    border-left: 3px solid var(--u-red-mid);
-    padding: 10px 14px;
-    border-radius: 0 var(--radius) var(--radius) 0;
-    margin-bottom: 1.25rem;
-    font-size: 11.5px;
-    color: var(--u-slate);
-    line-height: 1.5;
+  /* ── CARDS ── */
+  .card {
+    background: var(--u-white);
+    border: 1px solid var(--u-border);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
+    margin-bottom: 1rem;
   }
-  .derivation-box strong { font-weight: 600; color: var(--u-charcoal); }
-
-  /* ── CARDS & FORMS ── */
-  .card { background: var(--u-white); border: 1px solid var(--u-border); border-radius: var(--radius); padding: 1rem 1.1rem; margin-bottom: 1rem; }
   .card-title { font-size: 12px; font-weight: 500; color: var(--u-slate); margin-bottom: .7rem; }
+  .surface { background: var(--u-surface); border-radius: var(--radius); padding: .85rem 1rem; margin-bottom: 1rem; }
+
+  /* ── METRIC GRID ── */
   .mg { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin-bottom: 1rem; }
   .mc { background: var(--u-surface); border-radius: var(--radius); padding: .75rem .9rem; }
   .ml { font-size: 11px; color: var(--u-muted); margin-bottom: 3px; font-weight: 400; }
   .mv { font-size: 20px; font-weight: 500; color: var(--u-charcoal); }
   .mv.hi { color: var(--u-red-dark); }
   .mv.good { color: var(--u-green); }
+
+  /* ── FORM ── */
   .ir { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
   @media (max-width: 540px) { .ir { grid-template-columns: 1fr; } }
   .ig { display: flex; flex-direction: column; gap: 3px; }
   .ig label { font-size: 11px; color: var(--u-muted); font-weight: 400; }
   .ig input, .ig select {
-    border: 1px solid var(--u-border); border-radius: var(--radius); padding: 7px 9px;
-    font-size: 13px; font-family: var(--font-body); background: var(--u-white); color: var(--u-charcoal); width: 100%;
+    border: 1px solid var(--u-border);
+    border-radius: var(--radius);
+    padding: 7px 9px;
+    font-size: 13px;
+    font-family: var(--font-body);
+    background: var(--u-white);
+    color: var(--u-charcoal);
+    width: 100%;
+    transition: border-color 0.12s;
   }
   .ig input:focus, .ig select:focus { outline: none; border-color: var(--u-red-mid); }
 
-  /* ── BARS & PILLS ── */
+  /* ── BARS ── */
   .br-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 12px; }
   .bl { width: 140px; min-width: 90px; color: var(--u-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .bt { flex: 1; height: 6px; background: var(--u-border-light); border-radius: 3px; overflow: hidden; }
   .bf { height: 100%; border-radius: 3px; transition: width .4s ease; }
   .bv { width: 60px; text-align: right; font-weight: 500; font-size: 12px; }
+
+  /* ── PILLS ── */
   .pill { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 500; }
   .pg { background: var(--u-green-light); color: var(--u-green); }
   .pa { background: var(--u-amber-light); color: var(--u-amber); }
@@ -155,7 +281,13 @@
 
   /* ── HEATMAP ── */
   .hm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 6px; margin-bottom: 1rem; }
-  .hm-cell { border-radius: var(--radius); padding: .65rem .8rem; cursor: pointer; border: 1.5px solid transparent; transition: border-color .12s, transform .1s; }
+  .hm-cell {
+    border-radius: var(--radius);
+    padding: .65rem .8rem;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: border-color .12s, transform .1s;
+  }
   .hm-cell:hover { transform: translateY(-1px); }
   .hm-cell.selected { border-color: var(--u-charcoal); }
   .hm-name { font-size: 11px; font-weight: 500; margin-bottom: 3px; }
@@ -164,19 +296,31 @@
   .legend { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--u-muted); flex-wrap: wrap; margin-bottom: .7rem; }
   .lsq { width: 11px; height: 11px; border-radius: 2px; flex-shrink: 0; }
   .hm-filter { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: .7rem; }
-  .hm-btn { font-size: 12px; background: var(--u-white); border: 1px solid var(--u-border); border-radius: 20px; padding: 4px 12px; cursor: pointer; color: var(--u-muted); font-family: var(--font-body); }
-  .hm-btn:hover, .hm-btn.active { border-color: var(--u-red); color: var(--u-charcoal); }
-  .hm-btn.active { background: var(--u-red); color: #fff; }
+  .hm-btn {
+    font-size: 12px; background: var(--u-white); border: 1px solid var(--u-border);
+    border-radius: 20px; padding: 4px 12px; cursor: pointer; color: var(--u-muted);
+    font-family: var(--font-body); transition: all .12s;
+  }
+  .hm-btn:hover { border-color: var(--u-red-mid); color: var(--u-charcoal); }
+  .hm-btn.active { background: var(--u-red); border-color: var(--u-red); color: #fff; }
+
   .detail-panel { border: 1px solid var(--u-border); border-radius: var(--radius); padding: 1rem 1.1rem; margin-bottom: 1rem; }
   .dp-head { display: flex; align-items: center; gap: 10px; margin-bottom: .75rem; }
   .dp-icon { width: 34px; height: 34px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
   .role-row { display: flex; align-items: baseline; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid var(--u-border-light); font-size: 12px; }
+  .role-row:last-child { border-bottom: none; }
 
   /* ── SCORECARD ── */
   .sr-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--u-border-light); }
+  .sr-row:last-child { border-bottom: none; }
   .srl { font-size: 12.5px; }
   .srw { font-size: 10px; color: var(--u-muted); margin-top: 1px; }
-  .star { width: 22px; height: 22px; border: 1px solid var(--u-border); border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 11px; background: var(--u-white); color: var(--u-muted); }
+  .star {
+    width: 22px; height: 22px; border: 1px solid var(--u-border);
+    border-radius: 4px; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; font-size: 11px; background: var(--u-white);
+    color: var(--u-muted); transition: all .1s; font-family: var(--font-body);
+  }
   .star.sel { background: var(--u-red-light); border-color: var(--u-red-mid); color: var(--u-red-dark); font-weight: 500; }
   .tsd { text-align: center; padding: 1.25rem 1rem; background: var(--u-surface); border-radius: var(--radius); }
   .bs { font-size: 46px; font-weight: 500; }
@@ -189,34 +333,107 @@
   .skb { height: 100%; border-radius: 3px; }
   .skm { font-size: 10px; color: var(--u-muted); margin-top: 4px; }
   .sk-filter { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: .75rem; }
-  .sk-btn { font-size: 12px; background: var(--u-white); border: 1px solid var(--u-border); border-radius: 20px; padding: 4px 12px; cursor: pointer; color: var(--u-muted); font-family: var(--font-body); }
-  .sk-btn:hover, .sk-btn.active { border-color: var(--u-charcoal); color: var(--u-charcoal); }
-  .sk-btn.active { background: var(--u-charcoal); color: #fff; }
+  .sk-btn {
+    font-size: 12px; background: var(--u-white); border: 1px solid var(--u-border);
+    border-radius: 20px; padding: 4px 12px; cursor: pointer; color: var(--u-muted);
+    font-family: var(--font-body); transition: all .12s;
+  }
+  .sk-btn:hover { border-color: var(--u-red-mid); color: var(--u-charcoal); }
+  .sk-btn.active { background: var(--u-charcoal); border-color: var(--u-charcoal); color: #fff; }
+
   .src-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: .6rem; }
   .src-tag { font-size: 11px; background: var(--u-surface); border: 1px solid var(--u-border); border-radius: 20px; padding: 3px 9px; color: var(--u-muted); }
 
+  /* ── DEFINITION BANNERS ── */
+  .defn {
+    display: flex;
+    gap: 12px;
+    background: var(--u-surface);
+    border-left: 3px solid var(--u-red);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: .85rem 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .defn-icon { font-size: 18px; color: var(--u-red); flex-shrink: 0; margin-top: 1px; }
+  .defn-body { flex: 1; }
+  .defn-title { font-size: 12px; font-weight: 500; color: var(--u-charcoal); margin-bottom: 4px; }
+  .defn-text { font-size: 12px; color: var(--u-slate); line-height: 1.65; }
+  .defn-text strong { font-weight: 500; color: var(--u-charcoal); }
+  .defn-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .defn-pill {
+    font-size: 10.5px; background: var(--u-white); border: 1px solid var(--u-border);
+    border-radius: 20px; padding: 2px 9px; color: var(--u-muted);
+    display: flex; align-items: center; gap: 4px;
+  }
+  .defn-pill i { font-size: 11px; color: var(--u-red); }
+
   /* ── SIDEBAR ── */
   .sidebar { display: flex; flex-direction: column; gap: 1rem; }
-  .side-card { background: var(--u-white); border: 1px solid var(--u-border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
-  .side-card-header { display: flex; align-items: center; gap: 8px; padding: .85rem 1rem; border-bottom: 1px solid var(--u-border); background: var(--u-surface-alt); }
+  .side-card {
+    background: var(--u-white);
+    border: 1px solid var(--u-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .side-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: .85rem 1rem;
+    border-bottom: 1px solid var(--u-border);
+    background: var(--u-surface-alt);
+  }
   .side-card-header .title { font-size: 13px; font-weight: 500; }
   .side-card-header .icon { font-size: 15px; color: var(--u-red); }
   .side-card-body { padding: 1rem; }
-  .coach-note { margin-bottom: .85rem; padding-bottom: .85rem; border-bottom: 1px solid var(--u-border-light); }
+
+  /* ── COACH NOTES ── */
+  .coach-note {
+    margin-bottom: .85rem;
+    padding-bottom: .85rem;
+    border-bottom: 1px solid var(--u-border-light);
+  }
   .coach-note:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .coach-note-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--u-red); margin-bottom: 4px; }
-  .coach-note-text { font-size: 12px; color: var(--u-slate); line-height: 1.6; }
-  .notes-textarea { width: 100%; min-height: 90px; font-family: var(--font-body); font-size: 12px; color: var(--u-charcoal); border: 1px solid var(--u-border); border-radius: var(--radius); padding: 8px 10px; resize: vertical; background: var(--u-white); line-height: 1.6; }
-  .save-btn { margin-top: 7px; width: 100%; padding: 7px; background: var(--u-charcoal); color: #fff; border: none; border-radius: var(--radius); font-size: 12px; font-family: var(--font-body); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; }
-  .save-btn:hover { background: var(--u-red-dark); }
-  .save-confirm { font-size: 11px; color: var(--u-green); margin-top: 5px; text-align: center; display: none; }
-  .copy-btn {
+  .coach-note-label {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--u-red);
+    margin-bottom: 4px;
+  }
+  .coach-note-text {
+    font-size: 12px;
+    color: var(--u-slate);
+    line-height: 1.6;
+  }
+  .coach-note-text strong { font-weight: 500; color: var(--u-charcoal); }
+
+  .notes-textarea {
+    width: 100%;
+    min-height: 90px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--u-charcoal);
+    border: 1px solid var(--u-border);
+    border-radius: var(--radius);
+    padding: 8px 10px;
+    resize: vertical;
+    background: var(--u-white);
+    line-height: 1.6;
+    transition: border-color .12s;
+  }
+  .notes-textarea:focus { outline: none; border-color: var(--u-red-mid); }
+  .notes-textarea::placeholder { color: var(--u-muted); }
+
+  .save-btn {
     margin-top: 7px;
     width: 100%;
     padding: 7px;
-    background: var(--u-surface);
-    color: var(--u-charcoal);
-    border: 1px solid var(--u-border);
+    background: var(--u-charcoal);
+    color: #fff;
+    border: none;
     border-radius: var(--radius);
     font-size: 12px;
     font-family: var(--font-body);
@@ -225,44 +442,67 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    transition: all .12s;
+    transition: background .12s;
   }
-  .copy-btn:hover {
-    background: var(--u-border-light);
-    border-color: var(--u-charcoal);
-  }
+  .save-btn:hover { background: var(--u-red-dark); }
+  .save-confirm { font-size: 11px; color: var(--u-green); margin-top: 5px; text-align: center; display: none; }
+
+  /* ── FRAMEWORK QUICK REF ── */
   .qr-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
   .qr-icon { font-size: 14px; color: var(--u-red); margin-top: 1px; flex-shrink: 0; }
   .qr-text { font-size: 12px; color: var(--u-slate); line-height: 1.5; }
+  .qr-text strong { color: var(--u-charcoal); font-weight: 500; }
 
-  /* ── PRINT & FOOTER ── */
-  @media print { .site-header { position: static; background: var(--u-charcoal) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; } .tab-nav { overflow: visible; } .sec { display: block !important; break-inside: avoid; } .print-btn { display: none; } body { background: #fff; } .main-wrap { grid-template-columns: 1fr; } .sidebar { order: 1; } }
-  .site-footer { max-width: 1060px; margin: 1.5rem auto 0; padding: 0 2rem 2rem; font-size: 11px; color: var(--u-muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px; }
+  /* ── PRINT ── */
+  @media print {
+    .site-header { position: static; background: var(--u-charcoal) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tab-nav { overflow: visible; }
+    .sec { display: block !important; break-inside: avoid; }
+    .print-btn { display: none; }
+    body { background: #fff; }
+    .main-wrap { grid-template-columns: 1fr; }
+    .sidebar { order: 1; }
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    max-width: 1060px;
+    margin: 1.5rem auto 0;
+    padding: 0 2rem 2rem;
+    font-size: 11px;
+    color: var(--u-muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
 </style>
 </head>
 <body>
 
+<!-- SITE HEADER -->
 <header class="site-header" role="banner">
   <div class="site-header-logo">
     <div class="u-logo-mark" aria-hidden="true">U</div>
     <div class="u-logo-text">
-      <div class="school">David Eccles School of Business</div>
+      <div class="school">Full-Time MBA Program · David Eccles School of Business</div>
       <div class="program">University of Utah · MBA Career Services</div>
     </div>
   </div>
   <div class="site-header-right">
-    <span class="version-badge">CIF v2.0 · 2025–2026</span>
+    <span class="version-badge">CIF v3.0 · 2025–2026</span>
     <button class="print-btn" onclick="window.print()" aria-label="Print this framework">
       <i class="ti ti-printer" aria-hidden="true"></i> Print / Save PDF
     </button>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero" aria-label="Framework overview">
   <div class="hero-inner">
     <div>
       <h1 class="hero-title">MBA <em>Compensation</em> Intelligence Framework</h1>
-      <p class="hero-sub">A strategic labor-market intelligence system for Eccles MBA students and coaches. Model total compensation, benchmark industries, evaluate offers, and define true career value.</p>
+      <p class="hero-sub">A strategic labor-market intelligence system for Eccles MBA students and coaches. Model total compensation, benchmark industries, evaluate offers, and calculate career ROI — all in one place.</p>
       <div class="hero-pills">
         <span class="hero-pill">Total comp calculator</span>
         <span class="hero-pill">COL normalizer</span>
@@ -282,9 +522,11 @@
   </div>
 </section>
 
+<!-- MAIN CONTENT -->
 <main>
 <div class="main-wrap">
 
+  <!-- TOOL PANEL -->
   <div>
   <div class="tool-panel" role="main">
     <nav class="tab-nav" role="tablist" aria-label="Framework tools">
@@ -305,14 +547,23 @@
       </button>
     </nav>
 
+    <!-- TCV -->
     <div id="tab-tcv" class="sec active" role="tabpanel" aria-labelledby="tab-tcv">
       <h2 class="sec-title">Total compensation calculator</h2>
       <p class="sec-sub">Base salary alone is misleading. Model the full True Compensation Value (TCV) — including equity, benefits, brand premium, and lifestyle economics.</p>
-      
-      <div class="derivation-box">
-        <strong>How this is derived:</strong> Calculates True Compensation Value (TCV) by summing Base Salary, Annual Bonus, Equity (RSUs), Amortized Sign-On Bonus (divided by 3 years), Retirement Match, and Estimated Benefits. The sum is then multiplied by a tier-based brand premium. Remote savings are estimated at $5,200/year per remote day.
+      <div class="defn">
+        <i class="ti ti-info-circle defn-icon" aria-hidden="true"></i>
+        <div class="defn-body">
+          <div class="defn-title">How this works</div>
+          <div class="defn-text">
+            Enter the details of any job offer and this tool calculates your <strong>True Compensation Value (TCV)</strong> — the full economic picture beyond base salary. It sums base, bonus, equity (RSUs), sign-on (amortized over 3 years), retirement match, and benefits, then applies a brand multiplier based on the employer tier. Remote days are converted to commute savings at ~$5,200/day/year. The breakdown bars let you see at a glance which components are actually driving total comp.
+          </div>
+          <div class="defn-pills">
+            <span class="defn-pill"><i class="ti ti-alert-triangle" aria-hidden="true"></i> A $180K base with no equity may be worth less than $145K with strong RSUs</span>
+            <span class="defn-pill"><i class="ti ti-check" aria-hidden="true"></i> Use alongside the COL Normalizer for geographic context</span>
+          </div>
+        </div>
       </div>
-
       <div class="card">
         <div class="card-title">Offer details</div>
         <div class="ir">
@@ -359,16 +610,26 @@
       </div>
       <div class="mg" id="tcv-metrics"></div>
       <div class="card" id="tcv-bars"></div>
+      <p style="font-size:11px;color:var(--u-muted)">TCV = Base + Bonus + Equity + Sign-On (amortized over 3 yrs) + Retirement Match + Benefits, adjusted for brand multiplier. Remote savings estimated at $5,200/remote day/yr.</p>
     </div>
 
+    <!-- COL -->
     <div id="tab-col" class="sec" role="tabpanel">
       <h2 class="sec-title">Cost-of-living normalizer</h2>
-      <p class="sec-sub">Compare two offers on adjusted terms. True purchasing power tells the real story of compensation.</p>
-      
-      <div class="derivation-box">
-        <strong>How this is derived:</strong> Normalizes nominal compensation using regional Cost of Living indices (US average = 100) and subtracts top marginal state/local tax rates. This reveals true purchasing power, clearly modeling how a competitive Salt Lake City offer frequently outperforms an inflated coastal salary when market failures and tax drags are removed.
+      <p class="sec-sub">$145K in Salt Lake City often outperforms $210K in San Francisco in real purchasing power. Compare two offers on adjusted terms.</p>
+      <div class="defn">
+        <i class="ti ti-info-circle defn-icon" aria-hidden="true"></i>
+        <div class="defn-body">
+          <div class="defn-title">How this works</div>
+          <div class="defn-text">
+            This tool adjusts each offer's nominal salary using a <strong>Cost of Living (COL) index</strong> — a measure of how far a dollar goes in each city relative to the US average (100). For example, San Francisco has a COL index of ~197, meaning things cost roughly twice as much there. Each offer is also adjusted for <strong>top marginal state income tax</strong> to show after-tax take-home. The result: a side-by-side purchasing-power comparison so you're evaluating real economic value, not just the number on the offer letter.
+          </div>
+          <div class="defn-pills">
+            <span class="defn-pill"><i class="ti ti-map-pin" aria-hidden="true"></i> SLC index: 94 — below US average, strong purchasing power</span>
+            <span class="defn-pill"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Seattle and Austin have no state income tax — a significant hidden advantage</span>
+          </div>
+        </div>
       </div>
-
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
         <div class="card">
           <div class="card-title">Offer A</div>
@@ -409,14 +670,26 @@
       <div class="card" id="col-detail"></div>
     </div>
 
+    <!-- HEATMAP -->
     <div id="tab-heatmap" class="sec" role="tabpanel">
       <h2 class="sec-title">Industry compensation heatmap</h2>
       <p class="sec-sub">Compare 10 industries across five strategic dimensions. Darker = higher score. Click any cell for roles, salary ranges, and market signals.</p>
-
-      <div class="derivation-box">
-        <strong>How this is derived:</strong> Evaluates and scores 10 core MBA target industries from 0–100 across five strategic dimensions (Total Compensation, Growth Trajectory, AI Resilience, Equity Upside, Work-Life Fit) using aggregated market intelligence and coaching data.
+      <div class="defn">
+        <i class="ti ti-info-circle defn-icon" aria-hidden="true"></i>
+        <div class="defn-body">
+          <div class="defn-title">How this works</div>
+          <div class="defn-text">
+            Each industry is scored 0–100 across five dimensions based on 2025–2026 market data. <strong>Color intensity</strong> encodes the score — darker blue means a higher score for the selected dimension. Use the filter buttons to switch dimensions and re-rank industries instantly. <strong>Click any cell</strong> to open a detail panel showing MBA entry-level roles, realistic salary ranges, and a strategic market signal from current hiring data. Scores are editorial assessments synthesized from Levels.fyi, Glassdoor, H1B data, and industry reports — not algorithmic outputs.
+          </div>
+          <div class="defn-pills">
+            <span class="defn-pill"><i class="ti ti-layout-grid" aria-hidden="true"></i> Total comp (TCV) — full package value including equity</span>
+            <span class="defn-pill"><i class="ti ti-trending-up" aria-hidden="true"></i> Growth trajectory — 3–5 year comp acceleration potential</span>
+            <span class="defn-pill"><i class="ti ti-brain" aria-hidden="true"></i> AI resilience — robustness of the career path to AI disruption</span>
+            <span class="defn-pill"><i class="ti ti-coins" aria-hidden="true"></i> Equity upside — meaningful equity / carry / long-term incentive potential</span>
+            <span class="defn-pill"><i class="ti ti-heart" aria-hidden="true"></i> Work-life fit — typical hours, intensity, and flexibility</span>
+          </div>
+        </div>
       </div>
-
       <div class="hm-filter" id="hm-filter-btns">
         <button class="hm-btn active" onclick="setHMDim('tcv',this)">Total comp (TCV)</button>
         <button class="hm-btn" onclick="setHMDim('growth',this)">Growth trajectory</button>
@@ -438,14 +711,25 @@
       <div class="detail-panel" id="hm-detail" style="display:none"></div>
     </div>
 
+    <!-- SCORECARD -->
     <div id="tab-score" class="sec" role="tabpanel">
       <h2 class="sec-title">Offer evaluation scorecard</h2>
-      <p class="sec-sub">Rate two offers 1–5 across 8 weighted dimensions. The weighted total reveals the stronger long-term strategic choice.</p>
-
-      <div class="derivation-box">
-        <strong>How this is derived:</strong> Calculates a weighted total out of 100 based on subjective 1–5 user inputs across eight distinct career dimensions. The weights strictly prioritize long-term trajectory over immediate nominal compensation.
+      <p class="sec-sub">Rate two offers 1–5 across 8 weighted dimensions. The weighted total reveals the stronger long-term strategic choice — not just the higher number.</p>
+      <div class="defn">
+        <i class="ti ti-info-circle defn-icon" aria-hidden="true"></i>
+        <div class="defn-body">
+          <div class="defn-title">How this works</div>
+          <div class="defn-text">
+            Label your two offers, then rate each on a 1–5 scale across eight career dimensions. Each dimension carries a <strong>preset weight</strong> reflecting its long-term impact on career outcomes — Compensation (25%), Growth (20%), Brand (15%), and Leadership Exposure (15%) carry the most weight. Your ratings are multiplied by the weights and summed to produce a score out of 100. This forces a structured tradeoff conversation: a $200K offer that scores 54 may be a worse strategic choice than a $145K offer that scores 81.
+          </div>
+          <div class="defn-pills">
+            <span class="defn-pill"><i class="ti ti-check" aria-hidden="true"></i> 80–100: Strong accept</span>
+            <span class="defn-pill"><i class="ti ti-check" aria-hidden="true"></i> 65–79: Accept with negotiation</span>
+            <span class="defn-pill"><i class="ti ti-alert-triangle" aria-hidden="true"></i> 50–64: Proceed with caution</span>
+            <span class="defn-pill"><i class="ti ti-x" aria-hidden="true"></i> Below 50: Decline or renegotiate</span>
+          </div>
+        </div>
       </div>
-
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem">
         <div class="ig"><label for="sc-a-name">Offer A label</label><input type="text" id="sc-a-name" value="Adobe — Senior PM" oninput="renderScorecard()"></div>
         <div class="ig"><label for="sc-b-name">Offer B label</label><input type="text" id="sc-b-name" value="Consulting — Associate" oninput="renderScorecard()"></div>
@@ -454,14 +738,24 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:.85rem" id="score-results"></div>
     </div>
 
+    <!-- SKILLS -->
     <div id="tab-skills" class="sec" role="tabpanel">
       <h2 class="sec-title">Skill premium index</h2>
       <p class="sec-sub">Skills are market assets. Compensation is their market price. Use this to prioritize upskilling for maximum compensation ROI.</p>
-
-      <div class="derivation-box">
-        <strong>How this is derived:</strong> Indexes skillsets based on current labor market demand and expected compensation lift premiums. Scores are derived from live, aggregated salary transparency datasets (such as Levels.fyi, Glassdoor, and H1B visa reporting) and continuous employer signals.
+      <div class="defn">
+        <i class="ti ti-info-circle defn-icon" aria-hidden="true"></i>
+        <div class="defn-body">
+          <div class="defn-title">How this works</div>
+          <div class="defn-text">
+            Each skill is assigned a <strong>premium score from 0–100</strong> representing how much compensation lift that skill currently commands in the MBA-level job market, relative to peers without it. Scores are synthesized from 2025–2026 job posting data, Levels.fyi compensation reports, LinkedIn salary insights, and recruiter-reported hiring trends. Filter by category to focus your upskilling plan. A score of 90+ means the skill is actively commanding premium offers and is frequently listed as a differentiator in MBA-level hiring decisions.
+          </div>
+          <div class="defn-pills">
+            <span class="defn-pill"><i class="ti ti-brain" aria-hidden="true"></i> AI & data — fastest-growing premium category</span>
+            <span class="defn-pill"><i class="ti ti-code" aria-hidden="true"></i> Technical — analytical tools and applied coding</span>
+            <span class="defn-pill"><i class="ti ti-briefcase" aria-hidden="true"></i> Business — strategy, communication, and leadership skills</span>
+          </div>
+        </div>
       </div>
-
       <div class="sk-filter" id="sk-filter">
         <button class="sk-btn active" onclick="filterSkills('all',this)">All skills</button>
         <button class="sk-btn" onclick="filterSkills('ai',this)">AI &amp; data</button>
@@ -483,9 +777,13 @@
       </div>
     </div>
 
-  </div></div>
+  </div><!-- /tool-panel -->
+  </div>
 
+  <!-- SIDEBAR -->
   <aside class="sidebar" aria-label="Coach resources">
+
+    <!-- STRATEGIC FRAMEWORK QUICK REF -->
     <div class="side-card">
       <div class="side-card-header">
         <i class="ti ti-book icon" aria-hidden="true"></i>
@@ -515,6 +813,7 @@
       </div>
     </div>
 
+    <!-- COACHING SESSION NOTES -->
     <div class="side-card">
       <div class="side-card-header">
         <i class="ti ti-notes icon" aria-hidden="true"></i>
@@ -543,16 +842,10 @@
         <div class="save-confirm" id="save-confirm">
           <i class="ti ti-check" aria-hidden="true"></i> Saved to this browser session
         </div>
-
-        <button class="copy-btn" onclick="copySessionSummary()">
-          <i class="ti ti-clipboard-copy" aria-hidden="true"></i> Copy session summary
-        </button>
-        <div class="save-confirm" id="copy-confirm">
-          <i class="ti ti-check" aria-hidden="true"></i> Copied to clipboard!
-        </div>
       </div>
     </div>
 
+    <!-- ECCLES RESOURCES -->
     <div class="side-card">
       <div class="side-card-header">
         <i class="ti ti-school icon" aria-hidden="true"></i>
@@ -577,12 +870,16 @@
         </div>
       </div>
     </div>
-  </aside>
-</div></main>
 
+  </aside>
+
+</div><!-- /main-wrap -->
+</main>
+
+<!-- FOOTER -->
 <footer class="site-footer">
-  <span>Eccles MBA Compensation Intelligence Framework · CIF v2.0 · 2025–2026</span>
-  <span>David Eccles School of Business · University of Utah · MBA Career Services</span>
+  <span>Eccles MBA Compensation Intelligence Framework · CIF v3.0 · 2025–2026</span>
+  <span>Full-Time MBA Program · David Eccles School of Business · University of Utah</span>
 </footer>
 
 <script>
@@ -873,7 +1170,9 @@ function saveNotes() {
     next: document.getElementById('note-next').value,
     saved: new Date().toLocaleString()
   };
-  try { sessionStorage.setItem('cif-coach-notes', JSON.stringify(data)); } catch(e) {}
+  try {
+    sessionStorage.setItem('cif-coach-notes', JSON.stringify(data));
+  } catch(e) {}
   var confirm = document.getElementById('save-confirm');
   confirm.style.display = 'block';
   setTimeout(function() { confirm.style.display = 'none'; }, 3000);
@@ -892,65 +1191,6 @@ function loadNotes() {
   } catch(e) {}
 }
 
-function copySessionSummary() {
-  // 1. Re-calculate core TCV logic to ensure we have the live numbers
-  var base = +document.getElementById('t-base').value || 0;
-  var bonus = +document.getElementById('t-bonus').value || 0;
-  var rsu = +document.getElementById('t-rsu').value || 0;
-  var signAnn = (+document.getElementById('t-sign').value || 0) / 3;
-  var ret = (+(document.getElementById('t-ret').value || 0)) / 100 * base;
-  var ben = +document.getElementById('t-ben').value || 0;
-  var brand = +document.getElementById('t-brand').value || 1;
-  var tcvRaw = base + bonus + rsu + signAnn + ret + ben;
-  var tcv = Math.round(tcvRaw * brand);
-
-  // 2. Re-calculate Scorecard totals
-  var aName = document.getElementById('sc-a-name').value || 'Offer A';
-  var bName = document.getElementById('sc-b-name').value || 'Offer B';
-  var aT = 0, bT = 0;
-  scoreDims.forEach(function(d) { 
-    aT += scores.a[d.key] * d.weight; 
-    bT += scores.b[d.key] * d.weight; 
-  });
-  var aS = Math.round(aT * 20), bS = Math.round(bT * 20);
-
-  // 3. Grab the typed notes
-  var student = document.getElementById('note-student').value || 'No context provided.';
-  var offers = document.getElementById('note-offers').value || 'No offers detailed.';
-  var nego = document.getElementById('note-nego').value || 'No strategy detailed.';
-  var next = document.getElementById('note-next').value || 'No next steps detailed.';
-
-  // 4. Build the Markdown-formatted summary string
-  var summary = "### Eccles MBA Coaching Session Summary\n\n";
-  summary += "**Student Context:**\n" + student + "\n\n";
-  summary += "**Offers Under Review:**\n" + offers + "\n\n";
-  summary += "---\n\n";
-  
-  summary += "#### Primary Offer Math (TCV)\n";
-  summary += "- **Base Salary:** $" + base.toLocaleString() + "\n";
-  summary += "- **Annual Bonus:** $" + bonus.toLocaleString() + "\n";
-  summary += "- **Annual Equity (RSU):** $" + rsu.toLocaleString() + "\n";
-  summary += "- **True Comp Value (TCV):** $" + tcv.toLocaleString() + "\n\n";
-  summary += "---\n\n";
-  
-  summary += "#### Strategic Scorecard Verdict\n";
-  summary += "- **" + aName + ":** " + aS + "/100\n";
-  summary += "- **" + bName + ":** " + bS + "/100\n\n";
-  summary += "---\n\n";
-  
-  summary += "#### Negotiation Strategy\n" + nego + "\n\n";
-  summary += "#### Next Steps\n" + next + "\n";
-
-  // 5. Write to clipboard and show visual confirmation
-  navigator.clipboard.writeText(summary).then(function() {
-    var confirm = document.getElementById('copy-confirm');
-    confirm.style.display = 'block';
-    setTimeout(function() { confirm.style.display = 'none'; }, 3000);
-  }).catch(function(err) {
-    alert("Unable to copy to clipboard. Your browser may require you to grant permissions.");
-  });
-}
- 
 calcTCV();
 calcCOL();
 renderHeatmap();
