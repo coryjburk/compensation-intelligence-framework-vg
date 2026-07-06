@@ -4,7 +4,7 @@
 
 ## Live Link
 
-**[Compensation Intelligence Framework (vG)]**(https://coryjburk.github.io/compensation-intelligence-framework-vg/ )
+**[Compensation Intelligence Framework (vG)]( https://coryjburk.github.io/compensation-intelligence-framework-vg/ )**
 
 ---
 
