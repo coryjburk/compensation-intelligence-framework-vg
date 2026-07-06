@@ -10,9 +10,9 @@
 
 
 ## Overview
-The Interactive Strategic Offer Compensation Calculator is a self-contained, single-page web application (HTML/CSS/JavaScript) designed to empower MBA and graduate students during salary negotiations. [cite_start]When navigating the hiring system, having a real-time scenario planner gives candidates immense leverage to counter-offer and visualize the true long-term value of an employer's compensation package[cite: 621]. 
+The Interactive Strategic Offer Compensation Calculator is a self-contained, single-page web application (HTML/CSS/JavaScript) designed to empower MBA and graduate students during salary negotiations. When navigating the hiring system, having a real-time scenario planner gives candidates immense leverage to counter-offer and visualize the true long-term value of an employer's compensation package. 
 
-[cite_start]This tool operates completely client-side, requiring no backend database, meaning it is fast, secure, and easily hostable on virtually any platform[cite: 623].
+This tool operates completely client-side, requiring no backend database, meaning it is fast, secure, and easily hostable on virtually any platform.
 
 ## Core Features & Modes
 To provide accurate modeling across different employer types, the application is divided into two distinct analytical modes:
