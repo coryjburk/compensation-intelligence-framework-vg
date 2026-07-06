@@ -8,7 +8,7 @@ A single-file, browser-based decision tool that helps MBA students and career co
 
 ## Live Link
 
-**[Compensation Intelligence Framework (vG)]( https://coryjburk.github.io/compensation-intelligence-framework-vg/ )**
+**[Compensation Intelligence Framework (vC)]( https://coryjburk.github.io/compensation-intelligence-framework-vc/ )**
 
 ---
 
