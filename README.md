@@ -1,4 +1,13 @@
-# Interactive Strategic Offer Compensation Calculator
+# David Eccles School of Business Full-Time MBA Program - Interactive Strategic Offer Compensation Calculator
+
+---
+
+## Live Link
+
+[https://coryjburk.github.io/compensation-intelligence-framework-vg/]
+
+---
+
 
 ## Overview
 The Interactive Strategic Offer Compensation Calculator is a self-contained, single-page web application (HTML/CSS/JavaScript) designed to empower MBA and graduate students during salary negotiations. [cite_start]When navigating the hiring system, having a real-time scenario planner gives candidates immense leverage to counter-offer and visualize the true long-term value of an employer's compensation package[cite: 621]. 
